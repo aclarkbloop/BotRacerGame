@@ -12,16 +12,10 @@ public class BotGame {
 		int numOfBots = ui.getNumBots();
 		botMap = ui.getRobotParts(numOfBots);
 		BotFactory factory = new BotFactory(botMap, botTracker);
-		int fastestTime = 10000000;
-		RobotImpl winner = null;
 		for (int i = 0; i < botTracker.getRobotRoster().size(); i++) {
-			int temp = botTracker.getRobotRoster().get(i).performTasks();
-			if (temp < fastestTime) { 
-				fastestTime = temp;
-				winner = botTracker.getRobotRoster().get(i);
-			}
+			botTracker.getRobotRoster().get(i).start();
+			
 		}
-		System.out.println("And the winner is: " + winner.getBotName());
 		
 		
 

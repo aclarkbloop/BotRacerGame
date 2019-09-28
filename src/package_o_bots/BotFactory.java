@@ -23,7 +23,7 @@ public class BotFactory {
         	return new UnipedalBot(name, createTaskList());
         case "bipedal": 
         	return new BipedalBot(name, createTaskList());
-        case "aernautical": 
+        case "aeronautical": 
         	return new AeronauticalBot(name, createTaskList());
         case "quadrupedal": 
         	return new QuadrupedalBot(name, createTaskList());

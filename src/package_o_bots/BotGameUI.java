@@ -1,13 +1,17 @@
 package package_o_bots;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.util.HashMap;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class BotGameUI {
 	
@@ -18,10 +22,16 @@ public class BotGameUI {
 	public BotGameUI() {
 		this.uiFrame = new JFrame();
 		uiFrame.setTitle("Bot Game");
-		uiFrame.setLocationRelativeTo(null);
+		uiFrame.setDefaultCloseOperation(uiFrame.EXIT_ON_CLOSE);
 		uiFrame.setSize(800, 500);
+		JLabel titleLabel = new JLabel("Bot Racer 1.0", SwingConstants.CENTER);
+		titleLabel.setBackground(Color.PINK);
+		JButton startButton = new JButton("Start");
+		startButton.setFont(new Font("Courier", Font.BOLD,40));
+		titleLabel.add(startButton);
+		titleLabel.setFont(new Font("Courier", Font.BOLD,75));
+		uiFrame.add(titleLabel, SwingConstants.CENTER);
 		uiFrame.setVisible(true);
-		
 	}
 	
 	public int getNumBots() {
@@ -35,6 +45,7 @@ public class BotGameUI {
                 null,
                 possibilities,
                 "1");
+		if (numOfBots == null) { numOfBots = 1; }
 		return numOfBots;
 	}
 	
@@ -52,6 +63,7 @@ public class BotGameUI {
                     null,
                     possibilities,
                     "unipedal");
+			if (robotType == null) { robotType = "unipedal"; }
 			String name = (String)JOptionPane.showInputDialog(
                     frame,
                     "Please name your robot: ",
@@ -60,11 +72,18 @@ public class BotGameUI {
                     null,
                     null,
                     "");
-			
+			if (name == null) { robotType = "bloop"; }
 			botParts.put(robotType, name);
 		}
 		return botParts;
 		
+	}
+	
+	public void printWinner(RobotImpl robot) {
+		JLabel winner = new JLabel(robot.getBotName() + " the " + robot.getBotType() + 
+				" robot finished their tasks in " + robot.getTotalTime() + " milliseconds!", 
+				SwingConstants.CENTER);
+		uiFrame.add(winner);
 	}
 	
 }
