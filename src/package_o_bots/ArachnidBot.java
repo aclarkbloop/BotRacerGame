@@ -4,8 +4,8 @@ public class ArachnidBot extends RobotImpl{
 
 	String botName;
 	
-	public ArachnidBot(String name) {
-		super(name);
+	public ArachnidBot(String name, Task[] taskList) {
+		super(name, taskList);
 		botType = RobotType.ARACHNID;
 	}
 }

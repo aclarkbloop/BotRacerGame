@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class BotGame {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
+		//BotGameUI ui = new BotGameUI();
 		BotTracker botTracker = new BotTracker();
 		HashMap<String, String> botMap = new HashMap<String, String>();
 		Scanner inputCollector = new Scanner(System.in);
@@ -20,10 +21,16 @@ public class BotGame {
 			botMap.put(type, name);
 		}
 		BotFactory factory = new BotFactory(botMap, botTracker);
+		int fastestTime = 10000000;
+		RobotImpl winner = null;
 		for (int i = 0; i < botTracker.getRobotRoster().size(); i++) {
-			System.out.println(botTracker.getRobotRoster().get(i).getBotName() + ", " +
-					(botTracker.getRobotRoster().get(i).getBotType()));
+			int temp = botTracker.getRobotRoster().get(i).performTasks();
+			if (temp < fastestTime) { 
+				fastestTime = temp;
+				winner = botTracker.getRobotRoster().get(i);
+			}
 		}
+		System.out.println("And the winner is: " + winner.getBotName());
 		
 		
 

@@ -4,8 +4,8 @@ public class BipedalBot extends RobotImpl{
 	
 	String botName;
 	
-	public BipedalBot(String name) {
-		super(name);
+	public BipedalBot(String name, Task[] taskList) {
+		super(name, taskList);
 		this.botType = RobotType.BIPEDAL;
 	}
 

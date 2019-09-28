@@ -4,8 +4,8 @@ public class RadialBot extends RobotImpl {
 	
 	String botName;
 	
-	public RadialBot(String name) {
-		super(name);
+	public RadialBot(String name, Task[] taskList) {
+		super(name, taskList);
 		this.botType = RobotType.RADIAL;
 	}
 
