@@ -1,17 +1,17 @@
 package package_o_bots;
 
 import java.awt.BorderLayout;
+import java.util.HashMap;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class BotGameUI {
 	
 	JFrame uiFrame;
-	JComboBox<String> botTypeBox;
 	
 	
 	
@@ -20,29 +20,51 @@ public class BotGameUI {
 		uiFrame.setTitle("Bot Game");
 		uiFrame.setLocationRelativeTo(null);
 		uiFrame.setSize(800, 500);
-		this.botTypeBox = setRoboOptions();
-		setTextBox();
 		uiFrame.setVisible(true);
 		
 	}
 	
-	public JComboBox<String> setRoboOptions() {
-		String[] botTypes = {"unipedal", "bipedal", "quadrapedal", "radial", 
-				"arachnid", "aeronautical"};
-		JLabel label = new JLabel("Robot Types:");
-		final JPanel comboPanel = new JPanel();
-		botTypeBox = new JComboBox<String>(botTypes);
-		comboPanel.add(label);
-		comboPanel.add(botTypeBox);
-		comboPanel.setVisible(true);
-		uiFrame.add(comboPanel, BorderLayout.WEST);
-		return botTypeBox;
+	public int getNumBots() {
+		JFrame frame = new JFrame();
+		Integer[] possibilities = {1, 2, 3, 4};
+		Integer numOfBots = (Integer)JOptionPane.showInputDialog(
+                frame,
+                "How many robots would you like to build?",
+                "Customized Dialog",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                possibilities,
+                "1");
+		return numOfBots;
 	}
 	
-	public void setTextBox() {
-		JTextField nameBox = new JTextField("Enter a name for your robot: ");
-		nameBox.setVisible(true);
-		uiFrame.add(nameBox, BorderLayout.CENTER);
+	public HashMap<String, String> getRobotParts(int numRobots) {
+		JFrame frame = new JFrame();
+		HashMap<String, String> botParts = new HashMap<String, String>();
+		String[] possibilities = {"unipedal", "bipedal", 
+				"quadrupedal", "radial", "arachnid", "aeronautical"};
+		for (int i = 0; i < numRobots; i++) {
+			String robotType = (String)JOptionPane.showInputDialog(
+                    frame,
+                    "Please choose a type of robot: ",
+                    "Customized Dialog",
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    possibilities,
+                    "unipedal");
+			String name = (String)JOptionPane.showInputDialog(
+                    frame,
+                    "Please name your robot: ",
+                    "Customized Dialog",
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    null,
+                    "");
+			
+			botParts.put(robotType, name);
+		}
+		return botParts;
+		
 	}
 	
 }
