@@ -39,11 +39,10 @@ public class RobotImpl extends Thread implements Robot {
 				Thread.sleep(getTaskList()[i].getEta());
 				ui.printTaskCompletions(getTaskList()[i], this);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		ui.printWinner(this);
+		ui.printWhenFinished(this);
 	}
 	
 	public int getTotalTime() {
