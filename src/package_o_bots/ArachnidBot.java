@@ -1,11 +1,11 @@
 package package_o_bots;
 
-public class ArachnidBot extends RobotImpl{
+import javax.swing.JFrame;
 
-	String botName;
+public class ArachnidBot extends RobotImpl{
 	
-	public ArachnidBot(String name, Task[] taskList) {
-		super(name, taskList);
+	public ArachnidBot(String name, Task[] taskList, BotGameUI ui) {
+		super(name, taskList, ui);
 		botType = RobotType.ARACHNID;
 	}
 }
