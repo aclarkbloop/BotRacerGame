@@ -1,7 +1,7 @@
 # BOT-O-MAT
 Hello Red Ventures Engineers! I had so much fun creating this project and I hope you enjoy it!
 
-##Instructions for running the Bot Racer 1.0
+## Instructions for running the Bot Racer 1.0
 First, if you do not already have a JDK downloaded on your computer, you can follow this link to 
 download the latest version of Java: https://www.oracle.com/technetwork/java/javase/downloads/index.html
 
