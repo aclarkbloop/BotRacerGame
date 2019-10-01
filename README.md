@@ -7,13 +7,16 @@ download the latest version of Java: https://www.oracle.com/technetwork/java/jav
 
 From here there are two options:
 
-1. Clone the repository, find the RobotGame.java file, and run this file in an IDE. 
+1. Clone the repository, find the BotGame.java file, and run this file in an IDE. (I use Eclipse).
 	
-2. Simply download the runnable jar file and open it from your computer's file finder window. 
+2. Download the runnable jar file, 'bot-o-mat_runnable.jar', to your computer. From the command line, navigate to the directory in which the file was downloaded and run the command:
+
+					java -jar bot-o-mat_runnable.jar
 
 In both cases, you should expect to see a pink window pop up along with a dialogue box prompting you to 
 select the number of robots you want to build. 
 
+Happy Bot-ing!! :)
 
 ## Author 
 Amy Clark
