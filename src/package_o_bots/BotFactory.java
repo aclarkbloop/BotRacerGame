@@ -14,11 +14,18 @@ public class BotFactory {
 	
 	public BotFactory(HashMap<String, String> robotParts, BotTracker tracker, BotGameUI ui) {
 		this.robotParts = robotParts;
+		
+		// loops over the map of robot fields to construct each robot of the correct type
 		for (Map.Entry<String,String> entry : robotParts.entrySet()) {
+			// add each new robot to the tracker object passed in
 			tracker.addRobot(buildNewBot(entry.getKey(), entry.getValue(), ui));
 		}
 	}
 	
+	/* buildNewBot() determines type of robot by using the string passed in from user preferences and
+	 *  matches it with the correct enum value. Then creates an instance
+	 *  of a robot of that type.
+	 */
 	public RobotImpl buildNewBot(String type, String name, BotGameUI ui) {
 		switch (type) {
         case "unipedal": 
@@ -38,6 +45,9 @@ public class BotFactory {
      }
 	
 	
+	/* creates task list for each robot by generating random integers from 0-9
+	 *  and matching those to numbers in Task class
+	 */
 	public Task[] createTaskList() {
 		Task[] taskList = new Task[5];
 		Random random_int = new Random();

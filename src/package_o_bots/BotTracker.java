@@ -2,6 +2,8 @@ package package_o_bots;
 
 import java.util.ArrayList;
 
+// class encapsulates an ArrayList to keep track of all robots in the current game
+
 public class BotTracker {
 	
 	ArrayList<RobotImpl> robotRoster;

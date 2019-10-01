@@ -5,6 +5,7 @@ public class Task {
 	String description;
 	int eta;
 	
+	// constructor chooses description and eta based on random int passed in from BotFactory
 	public Task(int random_task) {
 		switch (random_task) {
 		case 0: this.description = "do the dishes";

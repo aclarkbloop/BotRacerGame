@@ -1,5 +1,8 @@
 package package_o_bots;
 
+import java.awt.Color;
+import java.util.Random;
+
 import javax.swing.JFrame;
 
 public class RobotImpl extends Thread implements Robot {
@@ -8,12 +11,23 @@ public class RobotImpl extends Thread implements Robot {
 	RobotType botType;
 	Task[] taskList;
 	BotGameUI ui;
+	Color color;
 	
 	
+	// Encapsulates the current UI in order to manipulate it from RobotImpl
 	public RobotImpl(String name, Task[] taskList, BotGameUI ui) {
 		this.taskList = taskList;
 		this.botName = name;
 		this.ui = ui;
+	}
+	
+	// set after Robots are constructed from main method
+	public void setColor(Color color) {
+		this.color = color;
+	}
+	
+	public Color getRobotColor() {
+		return this.color;
 	}
 	
 	public String getBotName() {
@@ -38,13 +52,14 @@ public class RobotImpl extends Thread implements Robot {
 			try {
 				Thread.sleep(getTaskList()[i].getEta());
 				ui.printTaskCompletions(getTaskList()[i], this);
+				// if one thread is preventing another from continuing we throw an exception
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		ui.printWhenFinished(this);
 	}
 	
+	// returns the sum of all the task's etas on the robot's list
 	public int getTotalTime() {
 		int totalTime = 0;
 		for (int i = 0; i < taskList.length; i++) {
