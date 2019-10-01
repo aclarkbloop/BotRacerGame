@@ -155,6 +155,10 @@ public class BotGameUI {
 		mainPanel.add(winnerPanel);
 		mainPanel.updateUI();
 	}
+	
+	public void closeGame() {
+		System.exit(0);
+	}
 }
 	
 	

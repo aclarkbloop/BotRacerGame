@@ -41,7 +41,9 @@ public class BotFactory {
         case "arachnid":
         	return new ArachnidBot(name, createTaskList(), ui);
         }
-		throw new IllegalArgumentException("There exists no robot of the given type :(");
+		// if user hits cancel button then close the program
+		System.exit(0);
+		throw new IllegalArgumentException("User did not make a selection.");
      }
 	
 	
