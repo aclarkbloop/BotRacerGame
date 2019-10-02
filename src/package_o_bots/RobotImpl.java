@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 
+// RobotImpl extends Thread so that multiple robots may work on their tasks simultaneously and be in a 'race' to complete them
 public class RobotImpl extends Thread implements Robot {
 	
 	String botName;
