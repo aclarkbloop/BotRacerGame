@@ -47,7 +47,7 @@ public class BotGame {
 		// if there is only one bot, then just print how fast it completed its tasks
 		if (botTracker.getRobotRoster().size() == 1) {
 			ui.printSingleRobot(botTracker.getRobotRoster().get(0));
-		}
+		} else {
 		
 		// find which bot had the shortest combined eta and print that bot as the winner
 		RobotImpl fastestBot = null;
@@ -58,6 +58,7 @@ public class BotGame {
 			}
 		}
 		ui.printWinner(fastestBot);
+	     }
 	}
 
 }
