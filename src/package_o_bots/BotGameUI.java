@@ -137,8 +137,7 @@ public class BotGameUI {
 	
 	// if a user only chooses to create one bot, notify them when the bot has finished all tasks
 	public void printSingleRobot(RobotImpl bot) {
-		JLabel botLabel = new JLabel(bot.getBotName() + " the " + bot.getBotType() + " bot finished their chores in" +
-				bot.getTotalTime() + " milliseconds! Way to go!");
+		JLabel botLabel = new JLabel(bot.getBotName() + " the " + bot.getBotType() + " bot finished all their chores!");
 		botLabel.setFont(new Font("Courier", Font.BOLD, 25));
 		JPanel botPanel = new JPanel();
 		botPanel.add(botLabel);
